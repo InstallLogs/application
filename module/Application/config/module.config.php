@@ -1,6 +1,8 @@
 <?php
 namespace Application;
 
+use Application\Controller\Admin as AdminController;
+use Application\Model\Factory\Controller\Admin as AdminControllerFactory;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
@@ -18,10 +20,21 @@ return [
                     ],
                 ],
             ],
+            'admin' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/admin',
+                    'defaults' => [
+                        'controller' => Controller\Admin::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [
         'factories' => [
+            AdminController::class  => AdminControllerFactory::class,
             Controller\Index::class => InvokableFactory::class,
         ],
     ],
