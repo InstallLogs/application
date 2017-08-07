@@ -12,12 +12,20 @@
         <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
             ->prependStylesheet($this->basePath('css/style.css'));
         ?>
-
-        <?= $this->headScript()
-            ->prependFile($this->basePath('js/bootstrap.min.js'))
-        ?>
     </head>
     <body>
-        <?= $this->content ?>
+        <header>
+            <div class="container">
+                <a href="/">Install Logs</a>
+            </div>
+        </header>
+        <main>
+            <?= $this->content ?>
+        </main>
+        <footer>
+            <div class="container">
+                &copy; 2017 Install Logs, Inc.
+            </div>
+        </footer>
     </body>
 </html>
