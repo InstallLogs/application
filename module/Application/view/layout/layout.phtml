@@ -9,9 +9,8 @@
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
 
-        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
-            ->prependStylesheet($this->basePath('css/style.css'));
-        ?>
+        <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="/favicon.ico" rel="shortcut icon">
     </head>
     <body>
         <header>
