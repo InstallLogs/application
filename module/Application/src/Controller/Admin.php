@@ -8,6 +8,9 @@ class Admin extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+    }
+
+    public function addLogAction()
+    {
     }
 }

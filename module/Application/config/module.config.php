@@ -21,11 +21,11 @@ return [
                 ],
             ],
             'admin' => [
-                'type' => Literal::class,
+                'type' => Segment::class,
                 'options' => [
-                    'route'    => '/admin',
+                    'route'    => '/admin[/:action]',
                     'defaults' => [
-                        'controller' => Controller\Admin::class,
+                        'controller' => AdminController::class,
                         'action'     => 'index',
                     ],
                 ],
