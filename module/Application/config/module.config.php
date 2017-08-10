@@ -38,6 +38,11 @@ return [
             Controller\Index::class => InvokableFactory::class,
         ],
     ],
+    'service_manager' => [
+        'abstract_factories' => [
+            \Zend\Db\Adapter\AdapterAbstractServiceFactory::class,
+        ],
+    ],
     'view_manager' => [
         'display_not_found_reason' => true,
         'display_exceptions'       => true,

@@ -11,6 +11,23 @@
  * file.
  */
 
+function var_dump_pre($mixed)
+{
+    echo '<pre>';
+    var_dump($mixed);
+    echo '</pre>';
+}
+
 return [
-    // ...
+    'db' => [
+        'adapters' => [
+            'installl' => [
+                'driver'         => 'Pdo',
+                'dsn'            => 'mysql:dbname=installl;host=localhost',
+                'driver_options' => [
+                    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
+                ],
+            ],
+        ],
+    ],
 ];
