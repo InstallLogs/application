@@ -34,26 +34,15 @@ class Log
         return $asins;
     }
 
-    public function insertIntoWhereModified($table, $hashtagId, $modified) : int
+    public function insertText($text)
     {
-        if (preg_match('/\W/', $table)) {
-            throw new Exception('Invalid table name.');
-        }
-        $sql = "
-            INSERT IGNORE INTO `hashtag`.$table
-            SELECT `asin`
-                 , `onlinefr`.`amazon_product`.`title`
-                 , `onlinefr`.`amazon_product_hashtag`.`modified`
-              FROM `onlinefr`.`amazon_product`
-              JOIN `onlinefr`.`amazon_product_hashtag`
-             USING (`asin`)
-             WHERE onlinefr.amazon_product_hashtag.hashtag_id = ?
-               AND onlinefr.amazon_product_hashtag.modified >= ?
+        $sql = '
+            INSERT INTO `log`
+                   (`text`)
+            VALUES (?)
                  ;
-
-        ";
-        $result = $this->adapter->query($sql, [$hashtagId, $modified]);
-        return $result->getAffectedRows();
+        ';
+        $result = $this->adapter->query($sql, [$text]);
     }
 
     public function selectAsinWhereMatchTitleAgainst($table, $query, $page)

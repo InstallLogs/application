@@ -12,6 +12,6 @@ class Log
 
     public function insertLog($text)
     {
-
+        $this->logTable->insertText($text);
     }
 }
