@@ -2,6 +2,7 @@
 namespace Application;
 
 use Application\Model\Service\Log as LogService;
+use Application\Model\Table\Line as LineTable;
 use Application\Model\Table\Log as LogTable;
 
 class Module
@@ -19,7 +20,13 @@ class Module
             'factories' => [
                 LogService::class => function ($serviceManager) {
                     return new LogService(
+                        $serviceManager->get(LineTable::class),
                         $serviceManager->get(LogTable::class)
+                    );
+                },
+                LineTable::class => function ($serviceManager) {
+                    return new LineTable(
+                        $serviceManager->get('installl')
                     );
                 },
                 LogTable::class => function ($serviceManager) {
