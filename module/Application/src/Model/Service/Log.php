@@ -17,5 +17,10 @@ class Log
     public function insertLog($text)
     {
         $this->logTable->insertText($text);
+
+        $lines = preg_split('/\R/', $text);
+        foreach ($lines as $line) {
+            $lineId = $this->lineTable->insertString($line);
+        }
     }
 }

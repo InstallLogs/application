@@ -20,5 +20,6 @@ class Line
                  ;
         ';
         $result = $this->adapter->query($sql, [$string]);
+        return (int) $result->getGeneratedValue();
     }
 }
