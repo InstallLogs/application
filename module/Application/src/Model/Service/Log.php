@@ -20,7 +20,10 @@ class Log
 
         $lines = preg_split('/\R/', $text);
         foreach ($lines as $line) {
-            $lineId = $this->lineTable->insertString($line);
+            $lineId = $this->lineTable->selectLineIdWhereStringOrReturnNull($line);
+            if (!$lineId) {
+                $lineId = $this->lineTable->insertString($line);
+            }
         }
     }
 }

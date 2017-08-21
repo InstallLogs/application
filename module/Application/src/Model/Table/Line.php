@@ -22,4 +22,18 @@ class Line
         $result = $this->adapter->query($sql, [$string]);
         return (int) $result->getGeneratedValue();
     }
+
+    public function selectLineIdWhereStringOrReturnNull($string)
+    {
+        $sql = '
+            SELECT `line_id`
+              FROM `line`
+             WHERE `string` = ?
+                 ;
+        ';
+        $row = $this->adapter->query($sql, [$string])->current();
+        return isset($row['line_id'])
+             ? (int) $row['line_id']
+             : null;
+    }
 }
