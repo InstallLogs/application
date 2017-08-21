@@ -4,6 +4,7 @@ namespace Application;
 use Application\Model\Service\Log as LogService;
 use Application\Model\Table\Line as LineTable;
 use Application\Model\Table\Log as LogTable;
+use Application\Model\Table\LogLine as LogLineTable;
 
 class Module
 {
@@ -21,7 +22,8 @@ class Module
                 LogService::class => function ($serviceManager) {
                     return new LogService(
                         $serviceManager->get(LineTable::class),
-                        $serviceManager->get(LogTable::class)
+                        $serviceManager->get(LogTable::class),
+                        $serviceManager->get(LogLineTable::class)
                     );
                 },
                 LineTable::class => function ($serviceManager) {
@@ -31,6 +33,11 @@ class Module
                 },
                 LogTable::class => function ($serviceManager) {
                     return new LogTable(
+                        $serviceManager->get('installl')
+                    );
+                },
+                LogLineTable::class => function ($serviceManager) {
+                    return new LogLineTable(
                         $serviceManager->get('installl')
                     );
                 },

@@ -3,15 +3,18 @@ namespace Application\Model\Service;
 
 use Application\Model\Table\Line as LineTable;
 use Application\Model\Table\Log as LogTable;
+use Application\Model\Table\LogLine as LogLineTable;
 
 class Log
 {
     public function __construct(
         LineTable $lineTable,
-        LogTable $logTable
+        LogTable $logTable,
+        LogLineTable $logLineTable
     ) {
-        $this->lineTable = $lineTable;
-        $this->logTable  = $logTable;
+        $this->lineTable     = $lineTable;
+        $this->logTable      = $logTable;
+        $this->logLineTable  = $logLineTable;
     }
 
     public function insertLog($text)
