@@ -22,11 +22,14 @@ class Log
         $logId = $this->logTable->insertText($text);
 
         $lines = preg_split('/\R/', $text);
+        $order = 1;
         foreach ($lines as $line) {
             $lineId = $this->lineTable->selectLineIdWhereStringOrReturnNull($line);
             if (!$lineId) {
                 $lineId = $this->lineTable->insertString($line);
             }
+            $this->logLineTable->insert($logId, $lineId, $order);
+            $order++;
         }
     }
 }

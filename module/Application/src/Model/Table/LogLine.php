@@ -11,14 +11,17 @@ class LogLine
         $this->adapter = $adapter;
     }
 
-    public function insert($logId, $lineId)
+    public function insert($logId, $lineId, $order)
     {
         $sql = '
             INSERT INTO `log_line`
-                   (`log_id`, `line_id`)
-            VALUES (?, ?)
+                   (`log_id`, `line_id`, `order`)
+            VALUES (?, ?, ?)
                  ;
         ';
-        $result = $this->adapter->query($sql, [$logId, $lineId]);
+        $result = $this->adapter->query(
+            $sql,
+            [$logId, $lineId, $order]
+        );
     }
 }
