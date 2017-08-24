@@ -1,6 +1,7 @@
 <?php
 namespace Application;
 
+use Application\Model\Factory\Model\Entity\Line as LineEntityFactory;
 use Application\Model\Service\Log as LogService;
 use Application\Model\Table\Line as LineTable;
 use Application\Model\Table\Log as LogTable;
@@ -19,6 +20,9 @@ class Module
     {
         return [
             'factories' => [
+                LineEntityFactory::class => function ($serviceManager) {
+                    return new LineEntityFactory();
+                },
                 LogService::class => function ($serviceManager) {
                     return new LogService(
                         $serviceManager->get(LineTable::class),

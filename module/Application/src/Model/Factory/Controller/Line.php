@@ -2,7 +2,7 @@
 namespace Application\Model\Factory\Controller;
 
 use Application\Controller\Line as LineController;
-use Application\Model\Service\Log as LogService;
+use Application\Model\Factory\Model\Entity\Line as LineEntityFactory;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
@@ -14,6 +14,7 @@ class Line implements FactoryInterface
         array $options = null
     ) {
         return new LineController(
+            $container->get(LineEntityFactory::class)
         );
     }
 }
