@@ -24,6 +24,7 @@ class Log
         $lines = preg_split('/\R/', $text);
         $order = 1;
         foreach ($lines as $line) {
+            $line = trim($line);
             $lineId = $this->lineTable->selectLineIdWhereStringOrReturnNull($line);
             if (!$lineId) {
                 $lineId = $this->lineTable->insertString($line);
