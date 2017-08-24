@@ -14,9 +14,9 @@ class Log
     public function insertText($text)
     {
         $sql = '
-            INSERT INTO `log`
-                   (`text`)
-            VALUES (?)
+            INSERT
+              INTO `log` ()
+            VALUES ();
                  ;
         ';
         $result = $this->adapter->query($sql, [$text]);
