@@ -36,4 +36,16 @@ class Line
              ? (int) $row['line_id']
              : null;
     }
+
+    public function selectWhereLineId($lineId)
+    {
+        $sql = '
+            SELECT `line`.`line_id`
+                 , `line`.`string`
+              FROM `line`
+             WHERE `line`.`line_id` = ?
+                 ;
+        ';
+        return $this->adapter->query($sql, [$lineId])->current();
+    }
 }
