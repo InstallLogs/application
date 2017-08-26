@@ -21,7 +21,9 @@ class Module
         return [
             'factories' => [
                 LineEntityFactory::class => function ($serviceManager) {
-                    return new LineEntityFactory();
+                    return new LineEntityFactory(
+                        $serviceManager->get(LineTable::class)
+                    );
                 },
                 LogService::class => function ($serviceManager) {
                     return new LogService(
