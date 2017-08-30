@@ -37,6 +37,24 @@ class Line
              : null;
     }
 
+    public function selectOrderByLineIdDesc()
+    {
+        $sql = '
+            SELECT `line`.`line_id`
+                 , `line`.`string`
+              FROM `line`
+             ORDER
+                BY `line`.`line_id` DESC
+             LIMIT 100
+                 ;
+        ';
+        $lineArrays = [];
+        $rows = $this->adapter->query($sql);
+        foreach ($rows as $row) {
+            var_dump($row);
+        }
+    }
+
     public function selectWhereLineId($lineId)
     {
         $sql = '
