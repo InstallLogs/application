@@ -17,5 +17,9 @@ class Line extends AbstractActionController
     {
         $lineId = $this->params('lineId');
         $lineEntity = $this->lineEntityFactory->buildFromLineId($lineId);
+
+        return [
+            'lineEntity' => $lineEntity,
+        ];
     }
 }
