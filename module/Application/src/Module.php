@@ -3,6 +3,7 @@ namespace Application;
 
 use Application\Model\Factory\Model\Entity\Line as LineEntityFactory;
 use Application\Model\Service\Log as LogService;
+use Application\Model\Service\Line as LineService;
 use Application\Model\Table\Line as LineTable;
 use Application\Model\Table\Log as LogTable;
 use Application\Model\Table\LogLine as LogLineTable;
