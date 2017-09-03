@@ -28,6 +28,7 @@ class Module
                 },
                 LineService::class => function ($serviceManager) {
                     return new LineService(
+                        $serviceManager->get(LineEntityFactory::class),
                         $serviceManager->get(LineTable::class)
                     );
                 },
