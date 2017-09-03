@@ -2,8 +2,10 @@
 namespace Application;
 
 use Application\Controller\Admin as AdminController;
+use Application\Controller\Index as IndexController;
 use Application\Controller\Line as LineController;
 use Application\Model\Factory\Controller\Admin as AdminControllerFactory;
+use Application\Model\Factory\Controller\Index as IndexControllerFactory;
 use Application\Model\Factory\Controller\Line as LineControllerFactory;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
@@ -17,7 +19,7 @@ return [
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
-                        'controller' => Controller\Index::class,
+                        'controller' => IndexController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -47,7 +49,7 @@ return [
     'controllers' => [
         'factories' => [
             AdminController::class  => AdminControllerFactory::class,
-            Controller\Index::class => InvokableFactory::class,
+            IndexController::class => IndexControllerFactory::class,
             LineController::class   => LineControllerFactory::class,
         ],
     ],
