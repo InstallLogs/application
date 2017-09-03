@@ -25,6 +25,11 @@ class Module
                         $serviceManager->get(LineTable::class)
                     );
                 },
+                LineService::class => function ($serviceManager) {
+                    return new LineService(
+                        $serviceManager->get(LineTable::class)
+                    );
+                },
                 LogService::class => function ($serviceManager) {
                     return new LogService(
                         $serviceManager->get(LineTable::class),
