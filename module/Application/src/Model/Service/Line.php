@@ -13,4 +13,14 @@ class Line
         $this->lineTable = $lineTable;
         $this->lineEntityFactory = $lineEntityFactory;
     }
+
+    public function getNewestLines()
+    {
+        $lineArrayGenerator = $this->lineTable->selectOrderByLineIdDesc();
+        $lineEntities = [];
+        foreach ($lineArrayGenerator as $lineArray) {
+            $lineEntities[] = $this->lineEntityFactory->buildFromArray($lineArray);
+        }
+        return $lineEntities;
+    }
 }

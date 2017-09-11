@@ -11,6 +11,16 @@ class Line
         $this->lineTable = $lineTable;
     }
 
+    public function buildFromArray(array $array)
+    {
+        $lineEntity = new LineEntity();
+
+        $lineEntity->lineId = $array['line_id'];
+        $lineEntity->string = $array['string'];
+
+        return $lineEntity;
+    }
+
     public function buildFromLineId(int $lineId)
     {
         $lineArray = $this->lineTable->selectWhereLineId($lineId);

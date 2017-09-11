@@ -37,6 +37,9 @@ class Line
              : null;
     }
 
+    /**
+     * @yield array
+     */
     public function selectOrderByLineIdDesc()
     {
         $sql = '
@@ -49,9 +52,9 @@ class Line
                  ;
         ';
         $lineArrays = [];
-        $rows = $this->adapter->query($sql);
+        $rows = $this->adapter->query($sql)->execute();
         foreach ($rows as $row) {
-            var_dump($row);
+            yield $row;
         }
     }
 

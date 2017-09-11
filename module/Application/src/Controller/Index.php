@@ -13,5 +13,8 @@ class Index extends AbstractActionController
 
     public function indexAction()
     {
+        return [
+            'newestLines' => $this->lineService->getNewestLines(),
+        ];
     }
 }
