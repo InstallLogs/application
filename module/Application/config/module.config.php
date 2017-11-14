@@ -4,6 +4,7 @@ namespace Application;
 use Application\Controller\Admin as AdminController;
 use Application\Controller\Index as IndexController;
 use Application\Controller\Line as LineController;
+use Application\Model\Factory\View\Helper\Line\Url as LineUrlHelperFactory;
 use Application\Model\Factory\Controller\Admin as AdminControllerFactory;
 use Application\Model\Factory\Controller\Index as IndexControllerFactory;
 use Application\Model\Factory\Controller\Line as LineControllerFactory;
@@ -56,6 +57,11 @@ return [
     'service_manager' => [
         'abstract_factories' => [
             \Zend\Db\Adapter\AdapterAbstractServiceFactory::class,
+        ],
+    ],
+    'view_helpers' => [
+        'factories' => [
+            'lineUrl' => LineUrlHelperFactory::class,
         ],
     ],
     'view_manager' => [

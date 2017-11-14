@@ -6,10 +6,6 @@ use Zend\View\Helper\AbstractHelper;
 
 class Url extends AbstractHelper
 {
-    public function __invoke(string $string)
-    {
-    }
-
     public function getRootRelativeUrl(LineEntity $lineEntity)
     {
 
