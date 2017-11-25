@@ -21,6 +21,7 @@
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
+            "Line\\": "module/Line/src/",
             "String\\": "module/String/src/"
         }
     },
