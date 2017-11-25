@@ -1,18 +1,18 @@
 <?php
-namespace String\Model\Factory\View\Helper;
+namespace Line\Model\Factory\View\Helper;
 
 use Interop\Container\ContainerInterface;
-use String\View\Helper\Escape as EscapeHelper;
+use Line\View\Helper\Href as LineHrefHelper;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
-class Escape implements FactoryInterface
+class Href implements FactoryInterface
 {
     public function __invoke(
         ContainerInterface $container,
         $requestedName,
         array $options = null
     ) {
-        return new EscapeHelper(
+        return new LineHrefHelper(
         );
     }
 }

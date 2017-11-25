@@ -6,7 +6,7 @@ use Line\Model\Factory\View\Helper\Href as HrefHelperFactory;
 return [
     'view_helpers' => [
         'factories' => [
-            'escape' => HrefHelperFactory::class,
+            'lineHref' => HrefHelperFactory::class,
         ],
     ],
 ];
