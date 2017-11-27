@@ -7,6 +7,7 @@ $lineHrefHelper = $this->lineHref();
 
 <ol>
 <?php foreach ($newestLines as $line): ?>
-    <li><?= $this->escape($line->string); ?></li>
+    <?php $href = $lineHrefHelper->getHref($line); ?>
+    <li><a href="<?= $this->escape($href); ?>"><?= $this->escape($line->string); ?></a></li>
 <?php endforeach ?>
 </ol>
