@@ -5,6 +5,8 @@ $lineHrefHelper = $this->lineHref();
 
 <p><b>Install Logs</b> documents and links to every line of various install logs. Users can then comment on individual lines, asking questions about their meaning or offering useful feedback for other system administrators.</p>
 
+<ol>
 <?php foreach ($newestLines as $line): ?>
-    <?= $this->escape($line->string); ?>
+    <li><?= $this->escape($line->string); ?></li>
 <?php endforeach ?>
+</ol>
