@@ -11,6 +11,17 @@
 
         <link href="/css/style.css?v=2017091101" media="screen" rel="stylesheet" type="text/css">
         <link href="/favicon.ico" rel="shortcut icon">
+        <?php if ($_SERVER['HTTP_HOST'] == 'www.installlogs.com'): ?>
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42535259-28"></script>
+                        <script>
+                          window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-42535259-28');
+            </script>
+        <?php endif ?>
     </head>
     <body>
         <header>
