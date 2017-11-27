@@ -3,6 +3,7 @@ namespace Line\Model\Factory\View\Helper;
 
 use Interop\Container\ContainerInterface;
 use Line\View\Helper\Href as LineHrefHelper;
+use String\Model\Service\UrlFriendly as UrlFriendlyService;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
 class Href implements FactoryInterface
@@ -13,6 +14,7 @@ class Href implements FactoryInterface
         array $options = null
     ) {
         return new LineHrefHelper(
+            $container->get(UrlFriendlyService::class)
         );
     }
 }

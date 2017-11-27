@@ -1,6 +1,8 @@
 <?php
 namespace String;
 
+use String\Model\Service\UrlFriendly as UrlFriendlyService;
+
 class Module
 {
     public function getConfig()
@@ -12,6 +14,9 @@ class Module
     {
         return [
             'factories' => [
+                UrlFriendlyService::class => function ($serviceManager) {
+                    return new UrlFriendlyService();
+                },
             ],
         ];
     }
